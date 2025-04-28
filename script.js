@@ -155,3 +155,17 @@ goldButton.addEventListener("click", updateGold);
 pickaxeButton.addEventListener("click", craftPickaxe);
 chiselButton.addEventListener("click", craftChisel);
 unlockButton.addEventListener("click", unlockEverything);
+// dark mode toggle
+const darkmodeToggle = document.getElementById("darkmodeToggle");
+
+darkmodeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    darkmodeToggle.classList.toggle("slide");
+
+    if (document.body.classList.contains("dark-mode")) {
+        darkmodeToggle.textContent = "🌙";
+    } else {
+        darkmodeToggle.textContent = "☀️";
+    }
+});
+
