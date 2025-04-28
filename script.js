@@ -1,14 +1,12 @@
-// Initial resource counts
+// initial resource counts
 let woodCount = 0;
 let stoneCount = 0;
 let goldCount = 0;
 let pickaxeCount = 0;
 let chiselCount = 0;
-
-// Unlock flag
 let isUnlocked = false;
 
-// DOM Elements
+// dom elements
 const woodCountElement = document.getElementById("woodCount");
 const stoneCountElement = document.getElementById("stoneCount");
 const goldCountElement = document.getElementById("goldCount");
@@ -24,17 +22,32 @@ const chiselButton = document.getElementById("chiselBtn");
 const secretCodeInput = document.getElementById("secretCode");
 const unlockButton = document.getElementById("unlockBtn");
 
-// Functions to update counts
+// functions
+function animateCount(element, newValue) {
+    const current = parseInt(element.textContent);
+    const increment = (newValue - current) / 10;
+    let count = 0;
+    const interval = setInterval(() => {
+        if (count >= 10) {
+            clearInterval(interval);
+            element.textContent = newValue;
+        } else {
+            element.textContent = Math.round(current + increment * count);
+            count++;
+        }
+    }, 20);
+}
+
 function updateWood() {
     woodCount++;
-    woodCountElement.textContent = woodCount;
+    animateCount(woodCountElement, woodCount);
     checkPickaxeAvailability();
 }
 
 function updateStone() {
     if (pickaxeCount > 0 || isUnlocked) {
         stoneCount++;
-        stoneCountElement.textContent = stoneCount;
+        animateCount(stoneCountElement, stoneCount);
         checkChiselAvailability();
     } else {
         alert("you need a pickaxe to mine stone! 🪓");
@@ -44,7 +57,8 @@ function updateStone() {
 function updateGold() {
     if (chiselCount > 0 || isUnlocked) {
         goldCount++;
-        goldCountElement.textContent = goldCount;
+        animateCount(goldCountElement, goldCount);
+        spawnSparkle();
     } else {
         alert("you need a chisel to mine gold! 🔨");
     }
@@ -66,9 +80,11 @@ function craftPickaxe() {
     if (woodCount >= 5) {
         pickaxeCount++;
         woodCount -= 5;
-        woodCountElement.textContent = woodCount;
-        pickaxeCountElement.textContent = pickaxeCount;
+        animateCount(woodCountElement, woodCount);
+        animateCount(pickaxeCountElement, pickaxeCount);
         checkPickaxeAvailability();
+        unlockStoneButton();
+        showCraftAnimation("pickaxe");
     }
 }
 
@@ -76,28 +92,63 @@ function craftChisel() {
     if (stoneCount >= 100) {
         chiselCount++;
         stoneCount -= 100;
-        stoneCountElement.textContent = stoneCount;
-        chiselCountElement.textContent = chiselCount;
+        animateCount(stoneCountElement, stoneCount);
+        animateCount(chiselCountElement, chiselCount);
         checkChiselAvailability();
+        unlockGoldButton();
+        showCraftAnimation("chisel");
     }
+}
+
+function unlockStoneButton() {
+    stoneButton.classList.remove("locked");
+}
+
+function unlockGoldButton() {
+    goldButton.classList.remove("locked");
+}
+
+function showCraftAnimation(toolName) {
+    const craftMessage = document.getElementById("craftMessage");
+    craftMessage.textContent = `You crafted a ${toolName}! 🎉`;
+    craftMessage.style.display = "block";
+
+    setTimeout(() => {
+        craftMessage.style.display = "none";
+    }, 2000);
 }
 
 function unlockEverything() {
     if (secretCodeInput.value.toLowerCase() === "purple") {
         isUnlocked = true;
-        // Enable all buttons
         pickaxeButton.disabled = false;
         chiselButton.disabled = false;
         woodButton.disabled = false;
         stoneButton.disabled = false;
         goldButton.disabled = false;
-        alert("You unlocked everything!");
+        stoneButton.classList.remove("locked");
+        goldButton.classList.remove("locked");
+        alert("you unlocked everything!");
     } else {
-        alert("Incorrect secret code.");
+        alert("incorrect secret code.");
     }
 }
 
-// Event Listeners for the buttons
+function spawnSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.textContent = "✨";
+    sparkle.classList.add("sparkle");
+    document.body.appendChild(sparkle);
+
+    sparkle.style.left = (goldButton.getBoundingClientRect().left + Math.random() * 50) + "px";
+    sparkle.style.top = (goldButton.getBoundingClientRect().top - 20) + "px";
+
+    setTimeout(() => {
+        sparkle.remove();
+    }, 1000);
+}
+
+// event listeners
 woodButton.addEventListener("click", updateWood);
 stoneButton.addEventListener("click", updateStone);
 goldButton.addEventListener("click", updateGold);
