@@ -7,6 +7,8 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
+    transition: background-color 0.5s ease; /* 👈 smooth transition */
+    position: relative;
 }
 
 .container {
@@ -17,6 +19,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     position: relative;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 h1 {
@@ -45,39 +48,14 @@ h1 {
     margin: 5px;
 }
 
-.woodBtn {
-    background-color: brown;
-    color: white;
-}
+.woodBtn { background-color: brown; color: white; }
+.stoneBtn { background-color: grey; color: white; }
+.goldBtn { background-color: darkgoldenrod; color: white; }
+.pickaxeBtn { background-color: lightblue; color: white; }
+.chiselBtn { background-color: lightcoral; color: white; }
+.unlockBtn { background-color: purple; color: white; }
 
-.stoneBtn {
-    background-color: grey;
-    color: white;
-}
-
-.goldBtn {
-    background-color: darkgoldenrod;
-    color: white;
-}
-
-.pickaxeBtn {
-    background-color: lightblue;
-    color: white;
-}
-
-.chiselBtn {
-    background-color: lightcoral;
-    color: white;
-}
-
-.unlockBtn {
-    background-color: purple;
-    color: white;
-}
-
-.btn:hover {
-    opacity: 0.8;
-}
+.btn:hover { opacity: 0.8; }
 
 .secret {
     margin-top: 20px;
@@ -100,12 +78,35 @@ h1 {
 }
 
 @keyframes sparkleAnimation {
-    0% {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
+    0% { opacity: 1; transform: translateY(0px); }
+    100% { opacity: 0; transform: translateY(-50px); }
+}
+
+/* dark mode styles */
+.dark-mode body {
+    background-color: #121212;
+}
+
+.dark-mode .container {
+    background-color: #222;
+    color: #eee;
+}
+
+.dark-mode .btn {
+    color: #fff;
+}
+
+.dark-mode .locked {
+    background-color: #555 !important;
+}
+
+/* dark mode toggle button */
+.darkmode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    z-index: 1000;
 }
