@@ -32,14 +32,22 @@ function updateWood() {
 }
 
 function updateStone() {
-    stoneCount++;
-    stoneCountElement.textContent = stoneCount;
-    checkChiselAvailability();
+    if (pickaxeCount > 0 || isUnlocked) {
+        stoneCount++;
+        stoneCountElement.textContent = stoneCount;
+        checkChiselAvailability();
+    } else {
+        alert("you need a pickaxe to mine stone! 🪓");
+    }
 }
 
 function updateGold() {
-    goldCount++;
-    goldCountElement.textContent = goldCount;
+    if (chiselCount > 0 || isUnlocked) {
+        goldCount++;
+        goldCountElement.textContent = goldCount;
+    } else {
+        alert("you need a chisel to mine gold! 🔨");
+    }
 }
 
 function checkPickaxeAvailability() {
