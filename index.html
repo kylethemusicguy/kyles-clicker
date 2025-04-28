@@ -18,8 +18,8 @@
         </div>
         <div class="buttons">
             <button id="woodBtn" class="btn woodBtn">Mine Wood</button>
-            <button id="stoneBtn" class="btn stoneBtn">Quarry Stone</button>
-            <button id="goldBtn" class="btn goldBtn">Mine Gold</button>
+            <button id="stoneBtn" class="btn stoneBtn locked">Quarry Stone</button>
+            <button id="goldBtn" class="btn goldBtn locked">Mine Gold</button>
             <button id="pickaxeBtn" class="btn pickaxeBtn" disabled>Craft Pickaxe</button>
             <button id="chiselBtn" class="btn chiselBtn" disabled>Craft Chisel</button>
         </div>
@@ -27,6 +27,7 @@
             <input type="text" id="secretCode" placeholder="Enter secret code">
             <button id="unlockBtn" class="btn unlockBtn">Unlock Everything</button>
         </div>
+        <div id="craftMessage" style="display:none; margin-top: 10px; font-weight: bold;"></div>
     </div>
 
     <script src="script.js"></script>
