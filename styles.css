@@ -6,6 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 .container {
@@ -15,6 +16,7 @@ body {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
+    position: relative;
 }
 
 h1 {
@@ -79,4 +81,31 @@ h1 {
 
 .secret {
     margin-top: 20px;
+}
+
+.locked {
+    background-color: #ccc !important;
+    color: #666 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.sparkle {
+    position: absolute;
+    color: gold;
+    font-size: 20px;
+    pointer-events: none;
+    animation: sparkleAnimation 1s forwards;
+    z-index: 999;
+}
+
+@keyframes sparkleAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
 }
