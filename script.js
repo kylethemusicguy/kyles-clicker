@@ -22,6 +22,9 @@ const chiselButton = document.getElementById("chiselBtn");
 const secretCodeInput = document.getElementById("secretCode");
 const unlockButton = document.getElementById("unlockBtn");
 
+const darkmodeToggle = document.getElementById("darkmodeToggle");
+const craftMessage = document.getElementById("craftMessage");
+
 // functions
 function animateCount(element, newValue) {
     const current = parseInt(element.textContent);
@@ -65,15 +68,11 @@ function updateGold() {
 }
 
 function checkPickaxeAvailability() {
-    if (woodCount >= 5) {
-        pickaxeButton.disabled = false;
-    }
+    pickaxeButton.disabled = woodCount < 5;
 }
 
 function checkChiselAvailability() {
-    if (stoneCount >= 100) {
-        chiselButton.disabled = false;
-    }
+    chiselButton.disabled = stoneCount < 100;
 }
 
 function craftPickaxe() {
@@ -109,8 +108,7 @@ function unlockGoldButton() {
 }
 
 function showCraftAnimation(toolName) {
-    const craftMessage = document.getElementById("craftMessage");
-    craftMessage.textContent = `You crafted a ${toolName}! 🎉`;
+    craftMessage.textContent = `you crafted a ${toolName}! 🎉`;
     craftMessage.style.display = "block";
 
     setTimeout(() => {
@@ -155,9 +153,8 @@ goldButton.addEventListener("click", updateGold);
 pickaxeButton.addEventListener("click", craftPickaxe);
 chiselButton.addEventListener("click", craftChisel);
 unlockButton.addEventListener("click", unlockEverything);
-// dark mode toggle
-const darkmodeToggle = document.getElementById("darkmodeToggle");
 
+// dark mode toggle
 darkmodeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     darkmodeToggle.classList.toggle("slide");
@@ -168,4 +165,3 @@ darkmodeToggle.addEventListener("click", () => {
         darkmodeToggle.textContent = "☀️";
     }
 });
-
