@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Clicker Game</title>
+    <title>Simple Clicker Game - World 1</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="darkmode-toggle" id="darkmodeToggle">☀️</div> <!-- Dark mode toggle -->
+    <div class="darkmode-toggle" id="darkmodeToggle">☀️</div>
 
     <div class="container">
-        <h1>Simple Clicker Game</h1>
+        <h1>Simple Clicker Game - World 1</h1>
         <div class="resources">
             <p>Wood: <span id="woodCount">0</span></p>
             <p>Stone: <span id="stoneCount">0</span></p>
             <p>Gold: <span id="goldCount">0</span></p>
             <p>Pickaxe: <span id="pickaxeCount">0</span></p>
             <p>Chisel: <span id="chiselCount">0</span></p>
-            <p>Miners: <span id="minerCount">0</span></p> <!-- Miners resource -->
+            <p>Miners: <span id="minersCount">0</span></p>
+            <p>Current World: <span id="worldElement">World 1</span></p>
         </div>
         <div class="buttons">
             <button id="woodBtn" class="btn woodBtn">Mine Wood</button>
@@ -25,7 +26,7 @@
             <button id="goldBtn" class="btn goldBtn locked">Mine Gold</button>
             <button id="pickaxeBtn" class="btn pickaxeBtn" disabled>Craft Pickaxe</button>
             <button id="chiselBtn" class="btn chiselBtn" disabled>Craft Chisel</button>
-            <button id="minerBtn" class="btn minerBtn" disabled>Craft Miner</button> <!-- Craft Miner button -->
+            <button id="minersBtn" class="btn minersBtn">Buy Miner</button>
         </div>
         <div class="secret">
             <input type="text" id="secretCode" placeholder="Enter secret code">
