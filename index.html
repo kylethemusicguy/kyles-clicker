@@ -11,6 +11,7 @@
 
     <div class="container">
         <h1>Simple Clicker Game - World 1</h1>
+        
         <div class="resources">
             <p>Wood: <span id="woodCount">0</span></p>
             <p>Stone: <span id="stoneCount">0</span></p>
@@ -18,20 +19,23 @@
             <p>Pickaxe: <span id="pickaxeCount">0</span></p>
             <p>Chisel: <span id="chiselCount">0</span></p>
             <p>Miners: <span id="minersCount">0</span></p>
-            <p>Current World: <span id="worldElement">World 1</span></p>
+            <p id="worldDisplay">World 1</p>
         </div>
+
         <div class="buttons">
             <button id="woodBtn" class="btn woodBtn">Mine Wood</button>
             <button id="stoneBtn" class="btn stoneBtn locked">Quarry Stone</button>
             <button id="goldBtn" class="btn goldBtn locked">Mine Gold</button>
             <button id="pickaxeBtn" class="btn pickaxeBtn" disabled>Craft Pickaxe</button>
             <button id="chiselBtn" class="btn chiselBtn" disabled>Craft Chisel</button>
-            <button id="minersBtn" class="btn minersBtn">Buy Miner</button>
+            <button id="minersBtn" class="btn minersBtn">Hire Miner (50 Gold)</button>
         </div>
+
         <div class="secret">
             <input type="text" id="secretCode" placeholder="Enter secret code">
             <button id="unlockBtn" class="btn unlockBtn">Unlock Everything</button>
         </div>
+
         <div id="craftMessage" style="display:none; margin-top: 10px; font-weight: bold;"></div>
     </div>
 
