@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="darkmode-toggle" id="darkmodeToggle">☀️</div> <!-- 👈 new -->
+    <div class="darkmode-toggle" id="darkmodeToggle">☀️</div> <!-- Dark mode toggle -->
 
     <div class="container">
         <h1>Simple Clicker Game</h1>
@@ -17,6 +17,7 @@
             <p>Gold: <span id="goldCount">0</span></p>
             <p>Pickaxe: <span id="pickaxeCount">0</span></p>
             <p>Chisel: <span id="chiselCount">0</span></p>
+            <p>Miners: <span id="minerCount">0</span></p> <!-- Miners resource -->
         </div>
         <div class="buttons">
             <button id="woodBtn" class="btn woodBtn">Mine Wood</button>
@@ -24,6 +25,7 @@
             <button id="goldBtn" class="btn goldBtn locked">Mine Gold</button>
             <button id="pickaxeBtn" class="btn pickaxeBtn" disabled>Craft Pickaxe</button>
             <button id="chiselBtn" class="btn chiselBtn" disabled>Craft Chisel</button>
+            <button id="minerBtn" class="btn minerBtn" disabled>Craft Miner</button> <!-- Craft Miner button -->
         </div>
         <div class="secret">
             <input type="text" id="secretCode" placeholder="Enter secret code">
