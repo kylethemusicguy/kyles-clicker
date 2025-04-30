@@ -1,13 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    color: #333; /* added */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    transition: background-color 0.5s ease; /* 👈 smooth transition */
+    transition: background-color 0.5s ease, color 0.5s ease; /* added color transition */
     position: relative;
 }
 
@@ -22,8 +23,8 @@ body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-h1 {
-    color: #333;
+h1, p, input, #craftMessage {
+    transition: color 0.5s ease; /* smooth color transition for text too */
 }
 
 .resources p {
@@ -44,7 +45,7 @@ h1 {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     margin: 5px;
 }
 
@@ -82,22 +83,30 @@ h1 {
     100% { opacity: 0; transform: translateY(-50px); }
 }
 
-/* dark mode styles */
-.dark-mode body {
-    background-color: #121212;
+/* dark mode EVERYTHING */
+.dark-mode {
+    background-color: #000 !important; /* FULL body background black */
+    color: #fff !important; /* text white */
 }
 
 .dark-mode .container {
-    background-color: #222;
-    color: #eee;
+    background-color: #111 !important; /* darker container */
+    color: #fff !important; /* container text */
 }
 
 .dark-mode .btn {
+    color: #fff !important; /* button text white */
+}
+
+.dark-mode input {
+    background-color: #333;
     color: #fff;
+    border: 1px solid #555;
 }
 
 .dark-mode .locked {
     background-color: #555 !important;
+    color: #999 !important;
 }
 
 /* dark mode toggle button */
