@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Simple Clicker Game - Desert</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="darkmode-toggle" id="darkmodeToggle">☀️</div>
+
+    <div class="container">
+        <h1>Simple Clicker Game - Desert</h1>
+        <div class="resources">
+            <p>Cactus: <span id="cactusCount">0</span></p>
+            <p>Sandstone: <span id="sandstoneCount">0</span></p>
+            <p>Sunstone: <span id="sunstoneCount">0</span></p>
+            <p>Pickaxe: <span id="pickaxeCount">0</span></p>
+            <p>Chisel: <span id="chiselCount">0</span></p>
+            <p>Current World: <span id="worldElement">Desert</span></p>
+        </div>
+        <div class="buttons">
+            <button id="cactusBtn" class="btn cactusBtn">Collect Cactus</button>
+            <button id="sandstoneBtn" class="btn sandstoneBtn locked">Mine Sandstone</button>
+            <button id="sunstoneBtn" class="btn sunstoneBtn locked">Mine Sunstone</button>
+            <button id="pickaxeBtn" class="btn pickaxeBtn" disabled>Craft Pickaxe</button>
+            <button id="chiselBtn" class="btn chiselBtn" disabled>Craft Chisel</button>
+        </div>
+        <div class="secret">
+            <input type="text" id="secretCode" placeholder="Enter desert code">
+            <button id="unlockBtn" class="btn unlockBtn">Unlock Everything</button>
+        </div>
+        <div id="craftMessage" style="display:none; margin-top: 10px; font-weight: bold;"></div>
+    </div>
+
+    <script src="desert.js"></script>
+</body>
+</html>
