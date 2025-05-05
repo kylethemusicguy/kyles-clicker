@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clicker Game - Cave World</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="darkmode-toggle" id="darkmodeToggle">☀️</div>
+
+  <div class="container">
+    <h1>Clicker Game - Cave World</h1>
+    <div class="resources">
+      <p>Iron: <span id="ironCount">0</span></p>
+      <p>Diamond: <span id="diamondCount">0</span></p>
+      <p>Pickaxe: <span id="pickaxeCount">0</span></p>
+      <p>Chisel: <span id="chiselCount">0</span></p>
+      <p>Miners: <span id="minersCount">0</span></p>
+      <p>Current World: <span id="worldElement">Cave World</span></p>
+    </div>
+    <div class="buttons">
+      <button id="ironBtn" class="btn stoneBtn">Mine Iron</button>
+      <button id="diamondBtn" class="btn goldBtn locked">Mine Diamond</button>
+      <button id="pickaxeBtn" class="btn pickaxeBtn">Craft Pickaxe</button>
+      <button id="chiselBtn" class="btn chiselBtn" disabled>Craft Chisel</button>
+      <button id="minersBtn" class="btn minersBtn">Buy Miner</button>
+    </div>
+    <div class="secret">
+      <input type="text" id="secretCode" placeholder="Enter secret code" />
+      <button id="unlockBtn" class="btn unlockBtn">Unlock Everything</button>
+    </div>
+    <div id="craftMessage" style="display:none; margin-top: 10px; font-weight: bold;"></div>
+  </div>
+
+  <script src="cave.js"></script>
+</body>
+</html>
 
