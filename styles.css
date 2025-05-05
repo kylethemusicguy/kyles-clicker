@@ -119,3 +119,20 @@ h1, p, input, #craftMessage {
     transition: transform 0.5s ease;
     z-index: 1000;
 }
+
+/* new cave resource buttons */
+.ironBtn {
+    background-color: #a19d94; /* metallic gray */
+    color: white;
+}
+
+.diamondBtn {
+    background-color: #00bcd4; /* icy blue */
+    color: white;
+}
+
+/* optional hover effect if you want to differentiate */
+.ironBtn:hover, .diamondBtn:hover {
+    filter: brightness(1.1);
+}
+
